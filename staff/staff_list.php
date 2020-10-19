@@ -35,7 +35,7 @@
 
     print 'スタッフ一覧</br></br>';
 
-    print '<form method="POST" action="staff_edit.php">';
+    print '<form method="POST" action="staff_branch.php">';
     while (true) {
       $rec = $stmt->fetch(PDO::FETCH_ASSOC);
       if ($rec == false) {
@@ -43,8 +43,9 @@
       }
       print '<input type="radio" name="staffcode" value="' . $rec['code'] . '">';
       print $rec['name'] . nl2br(PHP_EOL);
-      print '<input type="submit" value="修正" class="btn btn-outline-warning">';
-    }
+      print '<input type="submit" name="edit" value="修正" class="btn btn-outline-warning">';
+      print '<input type="submit" name="delete" value="削除" class="btn btn-outline-danger">';
+      }
   } catch (Exception $e) {
     print 'ただいま障害により大変ご迷惑をおかけしております。';
     exit();
