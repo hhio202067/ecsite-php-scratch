@@ -52,6 +52,10 @@
     <form method="POST" action="staff_edit_check.php">
       <input type="hidden" name="code" value="<?php print $staff_code; ?>">
       <div class="form-group">
+        <label>スタッフコード</label>
+        <input class="form-control" type="text" value="<?php print $staff_code; ?>" readonly>
+      </div>
+      <div class="form-group">
         <label>スタッフ名</label>
         <input class="form-control" type="text" name="name" placeholder="名前" value="<?php print $staff_name; ?>">
       </div>
