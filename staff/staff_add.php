@@ -22,7 +22,7 @@
     <span class="text-center d-block m-3">スタッフ追加</span>
     <form method="POST" action="staff_add_check.php">
       <div class="form-group">
-        <label>スタッフ名を追加してください</label>
+        <label>スタッフ名を入力してください</label>
         <input class="form-control" type="text" name="name" placeholder="名前">
       </div>
       <div class="form-group">
