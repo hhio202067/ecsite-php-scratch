@@ -1,4 +1,10 @@
 <?php
+
+  if (isset($_POST['add']) == true) {
+    header('Location: staff_add.php');
+    exit;
+  }
+
   if (isset($_POST['edit']) == true) {
     if (isset($_POST['staffcode']) == false) {
       header('Location: staff_ng.php');
@@ -20,4 +26,3 @@
 
   // isset() 値がセットされていればtrue そうでなければfalse
   // header()の前にはいかなる出力も書いてはいけない
-?>
