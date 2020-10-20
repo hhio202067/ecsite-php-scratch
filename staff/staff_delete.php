@@ -47,16 +47,15 @@
   <div class="form container">
     <span class="text-center d-block m-3">スタッフ削除</span>
     <form method="POST" action="staff_delete_done.php">
-      <input type="hidden" name="code" value="<?php print $staff_code; ?>">
       <div class="form-group">
         <label>スタッフコード</label>
-        <input class="form-control" type="text" value="<?php print $staff_code; ?>" readonly>
+        <input class="form-control" type="text" name="code" value="<?php print $staff_code; ?>" readonly>
       </div>
       <div class="form-group">
         <label>スタッフ名</label>
         <input class="form-control" type="text" value="<?php print $staff_name; ?>" readonly>
       </div>
-      <div>
+      <div class="text-center mt-5">
         このスタッフを削除してよろしいですか？
       </div>
       <div class="text-center mt-3">
