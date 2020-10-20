@@ -30,7 +30,7 @@
       $dbh = new PDO($dsn, $user, $password);
       $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-      $sql = 'SELECT name,price FROM mst_product WHERE code=?';
+      $sql = 'SELECT name,price,picture FROM mst_product WHERE code=?';
       $stmt = $dbh->prepare($sql);
       $data[] = $pro_code;
       $stmt->execute($data);
@@ -38,7 +38,14 @@
       $rec = $stmt->fetch(PDO::FETCH_ASSOC);
       $pro_name = $rec['name'];
       $pro_price = $rec['price'];
+      $pro_picture_name = $rec['picture'];
       $dbh = null;
+
+      if ($pro_picture_name == '') {
+        $disp_picture = '';
+      } else {
+        $disp_picture = '<img src="./picture/'.$pro_picture_name.'" >';
+      }
     }
     catch (Exception $e)
     {
@@ -63,6 +70,7 @@
         <label>価格</label>
         <input class="form-control" type="text" name="price" value="<?php print $pro_price; ?>" readonly>
       </div>
+      <?php print $disp_picture; ?>
       <div class="text-center mt-3">
         <input class="btn btn-outline-primary mr-2" type="button" onclick="history.back()" value="OK">
       </div>
