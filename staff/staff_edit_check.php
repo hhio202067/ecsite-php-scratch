@@ -26,6 +26,7 @@
   $staff_pass = $_POST['pass'];
   $staff_pass2 = $_POST['pass2'];
 
+  $staff_code = htmlspecialchars($staff_code, ENT_QUOTES, 'UTF-8');
   $staff_name = htmlspecialchars($staff_name, ENT_QUOTES, 'UTF-8');
   $staff_pass = htmlspecialchars($staff_pass, ENT_QUOTES, 'UTF-8');
   $staff_pass2 = htmlspecialchars($staff_pass2, ENT_QUOTES, 'UTF-8');
@@ -51,6 +52,7 @@
     print '</form>';
   } else {
     $staff_pass = md5($staff_pass);
+    print '上記の内容で修正します。<br />';
     print '<form method="POST" action="staff_edit_done.php">';
     print '<input type="hidden" name="code" value="' . $staff_code . '">';
     print '<input type="hidden" name="name" value="' . $staff_name . '">';
