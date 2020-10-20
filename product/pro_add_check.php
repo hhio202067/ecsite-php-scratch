@@ -37,7 +37,7 @@
   // preg_match() 正規表現でチェック
   // 先頭（^）から最後（$）まで半角数字（\d）であるかをチェック
   if (preg_match('/^[\d]+$/', $pro_price) == 0) {
-    print '価格をきちんと入力してください。' . nl2br(PHP_EOL);
+    print '価格は半角数字のみで入力してください。' . nl2br(PHP_EOL);
   } else {
     print '価格: ';
     print $pro_price . nl2br(PHP_EOL);
