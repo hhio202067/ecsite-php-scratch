@@ -29,6 +29,7 @@
         <label for="pro_name">商品名を入力してください</label>
         <input class="form-control" type="text" name="name" placeholder="商品名" id="pro_name">
       </div>
+      
       <div class="form-group">
         <label for="pro_price">価格を入力してください</label>
         <input class="form-control" type="text" name="price" placeholder="半角数字" id="pro_price">

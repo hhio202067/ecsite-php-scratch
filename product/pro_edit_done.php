@@ -25,6 +25,8 @@
     $pro_code = filter_input(INPUT_POST, 'code');
     $pro_name = filter_input(INPUT_POST, 'name');
     $pro_price = filter_input(INPUT_POST, 'price');
+    $pro_picture_name_old = filter_input(INPUT_POST, 'picture_name_old');
+    $pro_picture_name = filter_input(INPUT_POST, 'picture_name');
    
     $dsn = 'mysql:dbname=shop;host=localhost;charset=utf8';
     $user = 'root';
@@ -32,15 +34,19 @@
     $dbh = new PDO($dsn, $user, $password);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $sql = 'UPDATE mst_product SET name=?,price=? WHERE code=?';
+    $sql = 'UPDATE mst_product SET name=?,price=?,picture=? WHERE code=?';
     $stmt = $dbh->prepare($sql);
     $data[] = $pro_name; 
     $data[] = $pro_price; 
+    $data[] = $pro_picture_name; 
     $data[] = $pro_code;
     $stmt->execute($data);
 
     $dbh = null;
 
+    if ($pro_picture_name_old !== '') {
+      unlink('./picture/'.$pro_picture_name_old);
+    }
   }
   catch (Exception $e) 
   {
