@@ -22,8 +22,8 @@
   <?php
 
   try {
-    $pro_code = filter_input(INPUT_POST, 'code');
-    $pro_picture_name = filter_input(INPUT_POST, 'picture_name');
+    $pro_code = filter_input(INPUT_POST, 'code', FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_FLAG_NO_ENCODE_QUOTES);
+    $pro_picture_name = filter_input(INPUT_POST, 'picture_name', FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_FLAG_NO_ENCODE_QUOTES);
    
     $dsn = 'mysql:dbname=shop;host=localhost;charset=utf8';
     $user = 'root';

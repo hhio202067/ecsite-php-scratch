@@ -22,11 +22,11 @@
   <?php
 
   try {
-    $pro_code = filter_input(INPUT_POST, 'code');
-    $pro_name = filter_input(INPUT_POST, 'name');
-    $pro_price = filter_input(INPUT_POST, 'price');
-    $pro_picture_name_old = filter_input(INPUT_POST, 'picture_name_old');
-    $pro_picture_name = filter_input(INPUT_POST, 'picture_name');
+    $pro_code = filter_input(INPUT_POST, 'code', FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_FLAG_NO_ENCODE_QUOTES);
+    $pro_name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_FLAG_NO_ENCODE_QUOTES);
+    $pro_price = filter_input(INPUT_POST, 'price', FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_FLAG_NO_ENCODE_QUOTES);
+    $pro_picture_name_old = filter_input(INPUT_POST, 'picture_name_old', FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_FLAG_NO_ENCODE_QUOTES);
+    $pro_picture_name = filter_input(INPUT_POST, 'picture_name', FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_FLAG_NO_ENCODE_QUOTES);
    
     $dsn = 'mysql:dbname=shop;host=localhost;charset=utf8';
     $user = 'root';

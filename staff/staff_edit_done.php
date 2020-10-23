@@ -31,9 +31,9 @@
     // $staff_pass = htmlspecialchars($staff_pass, ENT_QUOTES, 'UTF-8');
 
     // どっちでもいけるよ
-    $staff_code = filter_input(INPUT_POST, 'code');
-    $staff_name = filter_input(INPUT_POST, 'name');
-    $staff_pass = filter_input(INPUT_POST, 'pass');
+    $staff_code = filter_input(INPUT_POST, 'code', FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_FLAG_NO_ENCODE_QUOTES);
+    $staff_name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_FLAG_NO_ENCODE_QUOTES);
+    $staff_pass = filter_input(INPUT_POST, 'pass', FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_FLAG_NO_ENCODE_QUOTES);
    
     $dsn = 'mysql:dbname=shop;host=localhost;charset=utf8';
     $user = 'root';

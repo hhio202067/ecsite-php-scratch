@@ -22,7 +22,7 @@
   <?php
 
   try {
-    $staff_code = filter_input(INPUT_POST, 'code');
+    $staff_code = filter_input(INPUT_POST, 'code', FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_FLAG_NO_ENCODE_QUOTES);
    
     $dsn = 'mysql:dbname=shop;host=localhost;charset=utf8';
     $user = 'root';
