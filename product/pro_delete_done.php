@@ -23,6 +23,7 @@
 
   try {
     $pro_code = filter_input(INPUT_POST, 'code');
+    $pro_picture_name = filter_input(INPUT_POST, 'picture_name');
    
     $dsn = 'mysql:dbname=shop;host=localhost;charset=utf8';
     $user = 'root';
@@ -36,6 +37,12 @@
     $stmt->execute($data);
 
     $dbh = null;
+
+    $old_file_exists = file_exists('./picture/' . $pro_picture_name);
+
+    if ($pro_picture_name !== '' && $old_file_exists) {
+      unlink('./picture/' . $pro_picture_name);
+    }
 
   }
   catch (Exception $e) 

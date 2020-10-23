@@ -29,7 +29,7 @@
     $dbh = new PDO($dsn, $user, $password);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $sql = 'SELECT name, price FROM mst_product WHERE code=?';
+    $sql = 'SELECT name,price,picture FROM mst_product WHERE code=?';
     $stmt = $dbh->prepare($sql);
     $data[] = $pro_code;
     $stmt->execute($data);
@@ -37,8 +37,15 @@
     $rec = $stmt->fetch(PDO::FETCH_ASSOC);
     $pro_name = $rec['name'];
     $pro_price = $rec['price'];
+    $pro_picture_name = $rec['picture'];
 
     $dbh = null;
+
+    if ($pro_picture_name === '') {
+      $disp_picture = '';
+    } else {
+      $disp_picture = '<img src="./picture/'.$pro_picture_name.'">';
+    }
   } catch (Exception $e) {
     print 'ただいま障害により大変ご迷惑をおかけしております。';
     exit();
@@ -49,6 +56,7 @@
     <span class="text-center d-block m-3">商品情報削除</span>
     <form method="POST" action="pro_delete_done.php">
       <input type="hidden" name="code" value="<?php print $pro_code; ?>">
+      <input type="hidden" name="picture_name" value="<?php print $pro_picture_name; ?>">
       <div class="form-group">
         <label>商品コード</label>
         <input class="form-control" type="text" name="code" value="<?php print $pro_code; ?>" readonly>
@@ -61,6 +69,7 @@
         <label>価格</label>
         <input class="form-control" type="text" value="<?php print $pro_price; ?>" readonly>
       </div>
+      <?php print $disp_picture; ?>
       <div class="text-center mt-5">
         この商品情報を削除してよろしいですか？
       </div>
