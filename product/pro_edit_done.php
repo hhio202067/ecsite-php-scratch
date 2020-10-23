@@ -44,8 +44,13 @@
 
     $dbh = null;
 
-    if ($pro_picture_name_old !== '') {
-      unlink('./picture/'.$pro_picture_name_old);
+    $old_file_exists = file_exists('./picture/' . $pro_picture_name_old);
+
+    if($pro_picture_name_old !== $pro_picture_name) {
+      if ($pro_picture_name_old !== '' && $old_file_exists) {
+        // unlink(ファイル名)でファイルを削除
+        unlink('./picture/'.$pro_picture_name_old);
+      }
     }
   }
   catch (Exception $e) 
