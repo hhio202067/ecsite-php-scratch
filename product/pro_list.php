@@ -36,7 +36,8 @@
     print '商品一覧<br />';
     
     print '<form method="POST" action="pro_branch.php">';
-    print '<input type="submit" name="add" value="追加" class="btn btn-outline-primary"><br />';
+    print '<input type="submit" name="add" value="追加" class="btn btn-outline-primary">';
+    print '<a class="btn btn-outline-dark" href="../staff_login/staff_top.php">Top</a><br />';
     while (true) {
       $rec = $stmt->fetch(PDO::FETCH_ASSOC);
       if ($rec == false) {
