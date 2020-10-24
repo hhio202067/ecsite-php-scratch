@@ -19,11 +19,11 @@
     <form method="POST" action="staff_login_check.php">
       <div class="form-group">
         <label>スタッフコード</label>
-        <input type="text" name="code" class="form-control">
+        <input class="form-control" type="text" name="code">
       </div>
       <div class="form-group">
         <label>パスワード</label>
-        <input type="password" name="pass" class="form-control">
+        <input class="form-control" type="password" name="pass">
       </div>
       <div class="text-center mt-3">
         <input type="submit" class="btn btn-outline-primary" value="ログイン">
